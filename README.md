@@ -38,11 +38,11 @@ point clouds of several species of plants. The effectiveness of PSegNet originat
 Double-Neighborhood Feature Extraction Block (DNFEB), the Double-Granularity Feature Fusion Module (DGFFM), and the
 Attention Module (AM).<br>
 ***<p align="center">Schematic diagram of the VFPS strategy***<br><br>
-![figure3](https://spj.science.org/cms/10.34133/2022/9787643/asset/b5f842ef-87f9-47b6-8f26-5cabe95fff0d/assets/graphic/9787643.fig.001.jpg)<br><br>
+![figure3](https://github.com/Huang2002200/PlantNet-and-PSegNet-Code/edit/main/images/001.jpg)<br><br>
 ***<p align="center">The architecture of PSegNet. DNFEB is feature extraction block to condense the features***<br><br>
-![figure4](https://spj.science.org/doi/full/10.34133/2022/9787643?adobe_mc=MCMID%3D14000805405683999525849378418609464876%7CMCORGID%3D242B6472541199F70A4C98A6%2540AdobeOrg%7CTS%3D1700524800)<br><br>
+![figure4](https://github.com/Huang2002200/PlantNet-and-PSegNet-Code/edit/main/images/002.jpg)<br><br>
 ***<p align="center">Demonstration of DNFEB.In this figure, we only
 display feature dimensions of the 4th DNFEB***<br><br>
-![figure5](https://spj.science.org/doi/full/10.34133/2022/9787643?adobe_mc=MCMID%3D14000805405683999525849378418609464876%7CMCORGID%3D242B6472541199F70A4C98A6%2540AdobeOrg%7CTS%3D1700524800#fig2)<br><br>
+![figure5](https://github.com/Huang2002200/PlantNet-and-PSegNet-Code/edit/main/images/003.jpg)<br><br>
 
 
