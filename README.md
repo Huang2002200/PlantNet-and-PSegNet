@@ -3,7 +3,7 @@ This repos contains the official codes for papers:<br>
 <br>
 **PlantNet: A dual-function point cloud segmentation network for multiple plant species**<br>
 [D. Li†](https://davidleepp.github.io/), G. Shi†, J. Li, Y. Chen, S. Zhang, S. Xiang, and S. Jin<br>
-<u>†</u> *Equal contribution*<br>
+<ins>†</ins> *Equal contribution*<br>
 Pubilshed on *ISPRS Journal of Photogrammetry and Remote Sensing* in 2022<br>
 [[Paper](https://www.sciencedirect.com/science/article/pii/S0924271622000119)]<br>
 <br>
