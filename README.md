@@ -61,10 +61,18 @@ Raw data needs to be preprocessed before it can be fed into the network for trai
 * **002PCD2TXT(python).py** is used to convert files from PCD format to the txt format, which can be skipped when the input is already in txt format.<br>
 * **003remove backgroud spots and noise.py** is used to remove background points and noise from the raw plant pointclouds.<br>
 * **004add_object_label ins_label_minus_2.py** is used to add category labels to the pointclouds and subtract 2 from all the instance labels so that the minimum value is 0 instead of 2.<br>
-* **005split test set and training set.py** is used to divide the pointclouds into a train set and a test set.<br>
-* **006data augmentation by FPS.py** is used to augment the test set and train set separately using the FPS approach.<br>
+* **005split test set and training set.py** is used to divide the pointclouds into a training set and a test set.<br>
+* **006data augmentation by FPS.py** is used to augment the test set and training set separately using the FPS approach.<br>
 * **007TXT2H5.py** is used to add semantic labels to pointclouds as well as convert the files from txt format to h5 format.<br>
 #### Notice! Programs need to be run one by one in the order of name and number.<br>
+### PlantNet<br>
+Contains all the code for training PlantNet networks in pytorch environment as well as in tensorflow environment.<br>
+* **models** floder contains the code for PlantNet's entire training and testing process.
+*  **00estimate_mean_ins_size.py** is used to predict the approximate volume of instances in the training set, and the mean_ins_size.txt file is generated to assist subsequent clustering.
+*  **01train.py** is used to train the model parameters using the training set.
+*  **02test.py** is used to get the predicted labels by testing on the test set using the saved model parameters.
+*  **03eval_iou_accuracy.py** is used to compute quantitative metrics for instance segmentation as well as semantic segmentation.
+*  **04changeresulttoins.gt,sem.gt,ins,sem.py** is used to output pointclouds based on the predicted labels, which facilitates visual qualitative comparison.
 
 
 
