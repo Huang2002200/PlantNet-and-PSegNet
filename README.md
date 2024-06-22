@@ -27,9 +27,10 @@ This study innovates a dual-function deep learning neural network (PlantNet) to 
 instance segmentation of two dicotyledons and one monocotyledon from point clouds. The innovations of the PlantNet include a 3D EdgePreserving Sampling (3DEPS) strategy for preprocessing input points, a Local Feature Extraction Operation 
 (LFEO) module based on dynamic graph convolutions, and a semantic-instance Feature Fusion Module (FFM).<br>
 ***<p align="center">Overview of the proposed method***<br><br>
-<img src="https://github.com/Huang2002200/PlantNet-and-PSegNet-Code/blob/main/images/PlantNet01.png" width="60%" height="60%"><br><br>
+<img src="https://github.com/Huang2002200/PlantNet-and-PSegNet/assets/64185853/9b0c7e00-11c6-4930-9baa-a7395719a955" width="60%" height="60%">
+<br><br>
 ***<p align="center">Overview of PlantNet. (a) is the main structure of the network, (b) is a clear demonstration of the Local Feature Extraction Operation (LFEO) used in the encoder***<br><br>
-<img src="https://github.com/Huang2002200/PlantNet-and-PSegNet-Code/blob/main/images/PlantNet02.png" width="90%" height="90%"><br><br>
+<img src="https://github.com/Huang2002200/PlantNet-and-PSegNet/assets/64185853/0be64f82-f628-45fb-a50d-aecf251ca468" width="90%" height="90%"><br><br>
 ### PSegNet<br>
 Phenotyping of plant growth improves the understanding of complex genetic traits and eventually expedites the development of
 modern breeding and intelligent agriculture. In phenotyping, segmentation of 3D point clouds of plant organs such as leaves and
@@ -41,12 +42,12 @@ point clouds of several species of plants. The effectiveness of PSegNet originat
 Double-Neighborhood Feature Extraction Block (DNFEB), the Double-Granularity Feature Fusion Module (DGFFM), and the
 Attention Module (AM).<br>
 ***<p align="center">Schematic diagram of the VFPS strategy***<br><br>
-<img src="https://github.com/Huang2002200/PlantNet-and-PSegNet-Code/blob/main/images/PSegNet01.png" width="50%" height="50%"><br><br>
+<img src="https://github.com/Huang2002200/PlantNet-and-PSegNet/assets/64185853/34fbbb59-7ef1-4af2-90d1-3dc2192e9934" width="50%" height="50%"><br><br>
 ***<p align="center">The architecture of PSegNet. DNFEB is feature extraction block to condense the features***<br><br>
-<img src="https://github.com/Huang2002200/PlantNet-and-PSegNet-Code/blob/main/images/PSegNet02.png" width="90%" height="90%"><br><br>
+<img src="https://github.com/Huang2002200/PlantNet-and-PSegNet/assets/64185853/2d87fa66-d8d8-4662-a153-fcf706123de9" width="90%" height="90%"><br><br>
 ***<p align="center">Demonstration of DNFEB.In this figure, we only
 display feature dimensions of the 4th DNFEB***<br><br>
-<img src="https://github.com/Huang2002200/PlantNet-and-PSegNet-Code/blob/main/images/PSegNet03.png" width="90%" height="90%"><br><br>
+<img src="https://github.com/Huang2002200/PlantNet-and-PSegNet/assets/64185853/a76d84ac-c00d-4441-abeb-14bc910b2105" width="90%" height="90%"><br><br>
 ## Quick Start<br>
 This project contains four main folders<br>
 floder [**dataset**] contains the raw dataset used in the paper as well as the preprocessed training h5 file and test h5 file<br>
