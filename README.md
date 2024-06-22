@@ -46,6 +46,28 @@ Attention Module (AM).<br>
 ***<p align="center">Demonstration of DNFEB.In this figure, we only
 display feature dimensions of the 4th DNFEB***<br><br>
 <img src="https://github.com/Huang2002200/PlantNet-and-PSegNet-Code/blob/main/images/PSegNet03.png" width="90%" height="90%"><br><br>
+## Quick Start<br>
+This project contains four main folders<br>
+floder [**dataset**] contains the raw dataset used in the paper as well as the preprocessed training h5 file and test h5 file<br>
+floder [**data_preprocess**] contains the code for processing the raw dataset into the desired h5 format for the network<br>
+floder [**PlantNet**] contains the code corresponding to the PlantNet paper<br>
+floder [**PSegNet**]  contains the code corresponding to the PSegNet paper<br>
+### dataset<br>
+Dataset includes 558 single-plant point clouds of three types of crops (tobacco, tomato, and sorghum) under 3 to 5 different growth environments (ambient light, 
+shade, high heat, high light, drought) during a 20-day growth process.Of these, 105 point clouds for tomato, 312 point clouds for tobacco, and 129 point clouds for sorghum.<br>
+### data_preprocess<br>
+Raw data needs to be preprocessed before it can be fed into the network for training or testing.<br>
+* **001modifify label foemat (python).py** is used to modify the label format of input batches; standardizes the data format for subsequent processing.<br>
+* **002PCD2TXT(python).py** is used to convert files from PCD format to the txt format, which can be skipped when the input is already in txt format.<br>
+* **003remove backgroud spots and noise.py** is used to remove background points and noise from the raw plant pointclouds.<br>
+* **004add_object_label ins_label_minus_2.py** is used to add category labels to the pointclouds and subtract 2 from all the instance labels so that the minimum value is 0 instead of 2.<br>
+* **005split test set and training set.py** is used to divide the pointclouds into a train set and a test set.<br>
+* **006data augmentation by FPS.py** is used to augment the test set and train set separately using the FPS approach.<br>
+* **007TXT2H5.py** is used to add semantic labels to pointclouds as well as convert the files from txt format to h5 format.<br>
+#### Notice! Programs need to be run one by one in the order of name and number.<br>
+
+
+
 
 
 
