@@ -13,7 +13,8 @@ Published on *Plant Phenomics* in 2022<br>
 [[Paper](https://spj.science.org/doi/full/10.34133/2022/9787643?adobe_mc=MCMID%3D14000805405683999525849378418609464876%7CMCORGID%3D242B6472541199F70A4C98A6%2540AdobeOrg%7CTS%3D1700524800)]
 ***
 ## Ackonwledgement<br>
-***
+
+
 ## Introduction<br>
 ### PlantNet<br>
 The accurate plant organ segmentation is crucial and challenging to the quantification of plant architecture and 
@@ -67,12 +68,39 @@ Raw data needs to be preprocessed before it can be fed into the network for trai
 #### Notice! Programs need to be run one by one in the order of name and number.<br>
 ### PlantNet<br>
 Contains all the code for training PlantNet networks in pytorch environment as well as in tensorflow environment.<br>
-* **models** floder contains the code for PlantNet's entire training and testing process.
-*  **00estimate_mean_ins_size.py** is used to predict the approximate volume of instances in the training set, and the mean_ins_size.txt file is generated to assist subsequent clustering.
-*  **01train.py** is used to train the model parameters using the training set.
-*  **02test.py** is used to get the predicted labels by testing on the test set using the saved model parameters.
-*  **03eval_iou_accuracy.py** is used to compute quantitative metrics for instance segmentation as well as semantic segmentation.
-*  **04changeresulttoins.gt,sem.gt,ins,sem.py** is used to output pointclouds based on the predicted labels, which facilitates visual qualitative comparison.
+* floder [**models**] contains the code for PlantNet's entire training and testing process.<br>
+  * **00estimate_mean_ins_size.py** is used to predict the approximate volume of instances in the training set, and the mean_ins_size.txt file is generated to assist subsequent clustering.<br>
+  * **01train.py** is used to train the model parameters using the training set.<br>
+  * **02test.py** is used to get the predicted labels by testing on the test set using the saved model parameters.<br>
+  * **03eval_iou_accuracy.py** is used to compute quantitative metrics for instance segmentation as well as semantic segmentation.<br>
+  * **04changeresulttoins.gt,sem.gt,ins,sem.py** is used to output pointclouds based on the predicted labels, which facilitates visual qualitative comparison.<br>
+  * **model.py** contains the PlanetNet model and the loss function.
+### PSegNet<br>
+Contains all the code for training PSegNet networks in pytorch environment as well as in tensorflow environment.<br>
+The code architecture is very similar to the one in the Plantnet folder.
+## Citation<br>
+Please consider citing our papers if the project helps your research with the following BibTex:
+```
+@article{li2022plantnet,
+  title={PlantNet: A dual-function point cloud segmentation network for multiple plant species},
+  author={Li, Dawei and Shi, Guoliang and Li, Jinsheng and Chen, Yingliang and Zhang, Songyin and Xiang, Shiyu and Jin, Shichao},
+  journal={ISPRS Journal of Photogrammetry and Remote Sensing},
+  volume={184},
+  pages={243--263},
+  year={2022},
+  publisher={Elsevier}
+}
+```
+```
+@article{li2022psegnet,
+  title={PSegNet: Simultaneous semantic and instance segmentation for point clouds of plants},
+  author={Li, Dawei and Li, Jinsheng and Xiang, Shiyu and Pan, Anqi},
+  journal={Plant Phenomics},
+  year={2022},
+  publisher={AAAS}
+}
+```
+
 
 
 
