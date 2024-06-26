@@ -17,7 +17,7 @@ def loadDataFile(path):
     return point_xyz, ins_label, sem_label, obj_label
 
 
-def change_scale(data):  # 这一步的主要目的是将点云中心移动到坐标原点，并将所有点的坐标的绝对值限制在1以内
+def change_scale(data):
 
     xyz_min = np.min(data[:, 0:3], axis=0)
     xyz_max = np.max(data[:, 0:3], axis=0)
@@ -36,7 +36,7 @@ if __name__ == "__main__":
     for fn in range(len(DATA_FILES)):
         # loadDataFile 返回点云坐标 实例标签 全零的语义标签
         current_data, current_ins_label, current_sem_label, current_obj_label = loadDataFile(os.path.join(base_path, DATA_FILES[fn]))
-        # 给点云赋予语义标签 current_sem_label
+        # create current_sem_label
         if DATA_FILES[fn].split("_")[0] == 'sorghum':
             current_sem_label[np.where(current_ins_label == 0)] = 0
             current_sem_label[np.where(current_ins_label >= 1)] = 1
@@ -54,7 +54,7 @@ if __name__ == "__main__":
     output = output.reshape(-1, num_sample, 6)
     f = h5py.File("/save_path/save_file_name", "w")
     f['data'] = output[:, :, 0:3]
-    f['pid'] = output[:, :, 3]  # 实例标签
+    f['pid'] = output[:, :, 3]  # ins label
     f['seglabel'] = output[:, :, 4]
     f['obj'] = output[:, :, 5]
 

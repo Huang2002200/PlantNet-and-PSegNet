@@ -19,7 +19,7 @@ for txt in txts:
         index = []
         lines = f.readlines()
         for line in lines:
-            if(line.split()[0:3] != ['0', '0', '0']):   # remove [0, 0, 0]
+            if(line.split()[0:3] != ['0', '0', '0']):   # remove [0, 0, 0] or any other point did not unreasonable
                 index.append(line)
     with open(os.path.join(save_path_str,os.path.splitext(txt)[0]+".txt"), 'w') as f:
         f.write(''.join(index[0:]))
