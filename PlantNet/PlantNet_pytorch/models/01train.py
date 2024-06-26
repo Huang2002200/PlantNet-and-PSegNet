@@ -109,7 +109,7 @@ def main(args):
     testDataLoader = torch.utils.data.DataLoader(TEST_DATASET, batch_size=args.batch_size, shuffle=False, num_workers=0,
                                                  pin_memory=True, drop_last=True)
     log_string("The number of training data is: %d" % len(TRAIN_DATASET))
-    log_string("The number of test data is: %d" % len(TRAIN_DATASET))
+    log_string("The number of test data is: %d" % len(TEST_DATASET))
 
     '''MODEL LOADING'''
     MODEL = importlib.import_module(args.model)
