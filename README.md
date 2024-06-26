@@ -12,9 +12,17 @@ Pubilshed on *ISPRS Journal of Photogrammetry and Remote Sensing* in 2022<br>
 Published on *Plant Phenomics* in 2022<br>
 [[Paper](https://spj.science.org/doi/full/10.34133/2022/9787643?adobe_mc=MCMID%3D14000805405683999525849378418609464876%7CMCORGID%3D242B6472541199F70A4C98A6%2540AdobeOrg%7CTS%3D1700524800)]
 ***
-## Ackonwledgement<br>
-
-
+## Prerequisitest<br>
+The code has a tensorflow version and a pytorch version, and their corresponding configurations are as follows:
+* All deep networks run under Ubuntu 20.04
+* Tensorflow version:<br>
+  * Python == 3.7.13
+  * Tensorflow == 1.13.1
+  * CUDA == 11.7
+* Pytorch version:
+  * Python == 3.8.18
+  * Pytorch == 2.0.1
+  * CUDA == 12.4
 ## Introduction<br>
 ### PlantNet<br>
 The accurate plant organ segmentation is crucial and challenging to the quantification of plant architecture and 
