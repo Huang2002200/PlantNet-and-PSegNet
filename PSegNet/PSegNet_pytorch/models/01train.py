@@ -108,7 +108,7 @@ def main(args):
     # weights = torch.Tensor(TRAIN_DATASET.labelweights).cuda()
 
     log_string("The number of training data is: %d" % len(TRAIN_DATASET))
-    log_string("The number of test data is: %d" % len(TRAIN_DATASET))
+    log_string("The number of test data is: %d" % len(TEST_DATASET))
 
     '''MODEL LOADING'''
     MODEL = importlib.import_module(args.model)
