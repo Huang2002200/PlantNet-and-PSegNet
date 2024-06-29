@@ -62,12 +62,12 @@ floder [**dataset**] contains the raw dataset used in the paper as well as the p
 floder [**datapreprocess**] contains the code for processing the raw dataset into the desired h5 format for the network<br>
 floder [**PlantNet**] contains the code corresponding to the PlantNet paper<br>
 floder [**PSegNet**]  contains the code corresponding to the PSegNet paper<br>
-### dataset<br>
+### Dataset<br>
 Dataset includes 546 single-plant point clouds of three types of crops (tobacco, tomato, and sorghum) under 3 to 5 different growth environments (ambient light, 
 shade, high heat, high light, drought) during a 20-day growth process.Of these, 105 point clouds for tomato, 312 point clouds for tobacco, and 129 point clouds for sorghum.<br>
 The raw pointclouds are all txt files, each txt file contains 6 columns, the first three columns are xyz location information,
 the fourth column is instance labeling, the fifth column is semantic labeling, and the sixth column is object labeling.<br>
-### data_preprocess<br>
+### Data_preprocess<br>
 Raw data needs to be preprocessed before it can be fed into the network for training or testing.<br>
 According to different downsampling strategies (vanilla FPS,3DEPS,VFPS), we provide 3 preprocessing flow folders.
 * floder [**FPS**] corresponds to use vanilla FPS in the preprocessing session.<br>
