@@ -59,21 +59,32 @@ display feature dimensions of the 4th DNFEB***<br><br>
 ## Quick Start<br>
 This project contains four main folders<br>
 floder [**dataset**] contains the raw dataset used in the paper as well as the preprocessed training h5 file and test h5 file<br>
-floder [**data_preprocess**] contains the code for processing the raw dataset into the desired h5 format for the network<br>
+floder [**datapreprocess**] contains the code for processing the raw dataset into the desired h5 format for the network<br>
 floder [**PlantNet**] contains the code corresponding to the PlantNet paper<br>
 floder [**PSegNet**]  contains the code corresponding to the PSegNet paper<br>
 ### dataset<br>
-Dataset includes 558 single-plant point clouds of three types of crops (tobacco, tomato, and sorghum) under 3 to 5 different growth environments (ambient light, 
+Dataset includes 546 single-plant point clouds of three types of crops (tobacco, tomato, and sorghum) under 3 to 5 different growth environments (ambient light, 
 shade, high heat, high light, drought) during a 20-day growth process.Of these, 105 point clouds for tomato, 312 point clouds for tobacco, and 129 point clouds for sorghum.<br>
+The raw pointclouds are all txt files, each txt file contains 6 columns, the first three columns are xyz location information,
+the fourth column is instance labeling, the fifth column is semantic labeling, and the sixth column is object labeling.<br>
 ### data_preprocess<br>
 Raw data needs to be preprocessed before it can be fed into the network for training or testing.<br>
-* **001modifify label foemat (python).py** is used to modify the label format of input batches; standardizes the data format for subsequent processing.<br>
-* **002PCD2TXT(python).py** is used to convert files from PCD format to the txt format, which can be skipped when the input is already in txt format.<br>
-* **003remove backgroud spots and noise.py** is used to remove background points and noise from the raw plant pointclouds.<br>
-* **004add_object_label ins_label_minus_2.py** is used to add category labels to the pointclouds and subtract 2 from all the instance labels so that the minimum value is 0 instead of 2.<br>
-* **005split test set and training set.py** is used to divide the pointclouds into a training set and a test set.<br>
-* **006data augmentation by FPS.py** is used to augment the test set and training set separately using the FPS approach.<br>
-* **007TXT2H5.py** is used to add semantic labels to pointclouds as well as convert the files from txt format to h5 format.<br>
+According to different downsampling strategies (vanilla FPS,3DEPS,VFPS), we provide 3 preprocessing flow folders.
+* floder [**FPS**] corresponds to use vanilla FPS in the preprocessing session.<br>
+  * **000split test set and training set.py** is used to divide the pointclouds into a training set and a test set.<br>
+  * **001data augmentation by FPS.py** is used to augment the test set and training set separately using the FPS approach.<br>
+  * **002TXT2H5.py** is used to add semantic labels to pointclouds as well as convert the files from txt format to h5 format.<br>
+* floder [**3DEPS**] corresponds to use 3DEPS in the preprocessing session.<br>
+  * **000Batch differentiate and save point cloud edge and center points(c++).cpp** is used to separate plant point clouds into edge points and non-edge points (in batches), respectively.<br>
+  * **001Merge edge and core points(4096+4096).py** is used to randomly sample 4096 points at the edge points and 4096 points at the center points,and merge the collected points into one point cloud file.<br>
+  * **002split test set and training set.py** is used to divide the pointclouds into a training set and a test set.<br>
+  * **003Proportionally merge into a new point cloud while expanding by a factor of 10.py** is used to sample 4096*(ratio) points at the edges and 4096*(1-radio) points at the center via vanilla FPS, which are then merged into a single point cloud.When merging, the FPS automatically carries out 10 times data augmentation.<br>
+  * **004TXT2H5.py** is used to add semantic labels to pointclouds as well as convert the files from txt format to h5 format.<br>
+* floder [**VFPS**] corresponds to use VFPS in the preprocessing session.<br>
+  * **000Voxel downsampling.py** is used to sample pointclouds via voxel sampling method.<br>
+  * **001split test set and training set.py** is used to divide the pointclouds into a training set and a test set.<br>
+  * **002data augument FPS_batch.py** is used to performs vanilla FPS of point cloud files with inconsistent voxel downsampling points, while realizing data enhancement.<br>
+  * **003TXT2H5.py** is used to add semantic labels to pointclouds as well as convert the files from txt format to h5 format.<br>
 #### Notice! Programs need to be run one by one in the order of name and number.<br>
 ### PlantNet<br>
 Contains all the code for training PlantNet networks in pytorch environment as well as in tensorflow environment.<br>
