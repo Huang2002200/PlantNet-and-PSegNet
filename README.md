@@ -87,24 +87,24 @@ We provide 3 different preprocessing techniques (with different downsampling str
   * file **002split test set and training set.py** is used to divide the new point clouds into a training set and a testing set.<br>
   * file **003Proportionally merge into a new point cloud while expanding by a factor of 10.py** uses FPS to sample 4096*(ratio) points from the edge part and to sample 4096*(1-radio) points from the non-edge part, then merges the two parts into a new single point cloud with 4096 points. When merging, the FPS is automatically carried out 10 times to do 10x data augmentation. If you want to create more data, please change the factor "10" to a larger number.<br>
   * file **004TXT2H5.py** is used to convert the files from txt format into h5 format for network input.<br>
-* floder [**VFPS**] corresponds to use VFPS in the preprocessing session.<br>
-  * **000Voxel downsampling.py** is used to sample pointclouds via voxel sampling method.<br>
-  * **001split test set and training set.py** is used to divide the pointclouds into a training set and a test set.<br>
-  * **002data augument FPS_batch.py** is used to performs vanilla FPS of point cloud files with inconsistent voxel downsampling points, while realizing data enhancement.<br>
-  * **003TXT2H5.py** is used to add semantic labels to pointclouds as well as convert the files from txt format to h5 format.<br>
-#### Notice! Programs need to be run one by one in the order of name and number.<br>
+* floder [**VFPS**] refers to using Voxelized Farthest Point Sampling (VFPS) in the preprocessing session.<br>
+  * file **000Voxel downsampling.py** is used to sample point clouds via voxel sampling method. Please be noted that in order to acquire desirable results, it is suggested to tune the voxel size parameter to allow the number of voxels to be around 10000+. The number of voxels must be larger than the final point number (such as 4096 in our project).<br>
+  * file **001split test set and training set.py** is used to divide the voxeled point clouds into a training set and a testing set.<br>
+  * file **002data augument FPS_batch.py** performs FPS on the voxelized point cloud files to control the number of points to a fixed value such as 4096. We also realize 10 times data augmentation by randomly initialize the first point of FPS for 10 times. The times of data augmentation can be controlled by the user.<br>
+  * file **003TXT2H5.py** is used to convert the files from txt format to the h5 format for further training and testing.<br>
+#### Notice! Programs need to be run one by one in the order of name and number.<br><br>
 ### PlantNet<br>
-Contains all the code for training PlantNet networks in pytorch environment as well as in tensorflow environment.<br>
-* floder [**models**] contains the code for PlantNet's entire training and testing process.<br>
-  * **00estimate_mean_ins_size.py** is used to predict the approximate volume of instances in the training set, and the mean_ins_size.txt file is generated to assist subsequent clustering.<br>
-  * **01train.py** is used to train the model parameters using the training set.<br>
-  * **02test.py** is used to get the predicted labels by testing on the test set using the saved model parameters.<br>
-  * **03eval_iou_accuracy.py** is used to compute quantitative metrics for instance segmentation as well as semantic segmentation.<br>
-  * **04changeresulttoins.gt,sem.gt,ins,sem.py** is used to output pointclouds based on the predicted labels, which facilitates visual qualitative comparison.<br>
-  * **model.py** contains the PlanetNet model and the loss function.
+Contains all code for training PlantNet networks in both pytorch environment and TensorFlow environment.<br>
+* folder [**models**] contains the code for PlantNet's entire training and testing processes.<br>
+  * file **00estimate_mean_ins_size.py** is used to predict an approximated volume of organ instances in the training set, and the "mean_ins_size.txt" file is generated to assist subsequent clustering.<br>
+  * file **01train.py** is used to train the model parameters using the training set.<br>
+  * file **02test.py** is used to get the predicted labels by testing on the test set using the saved model parameters.<br>
+  * file **03eval_iou_accuracy.py** is used to compute the quantitative metrics for the organ instance segmentation task as well as the organ semantic segmentation task.<br>
+  * file **04changeresulttoins.gt,sem.gt,ins,sem.py** is used to output segmented point clouds based on the predicted labels, which facilitates the visual qualitative comparison with ground truth.<br>
+  * file **model.py** contains the full PlantNet model and the loss function.
 ### PSegNet<br>
-Contains all the code for training PSegNet networks in pytorch environment as well as in tensorflow environment.<br>
-The code architecture is very similar to the one in the Plantnet folder.
+Contains all code for training PSegNet networks in both pytorch environment and TensorFlow environment.<br>
+The code architecture is very similar to the one in the PlantNet folderl therefore we omit the instructions.<br><br>
 ## Citation<br>
 Please consider citing our papers if the project helps your research with the following BibTex:
 ```
