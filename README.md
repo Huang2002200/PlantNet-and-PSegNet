@@ -49,12 +49,12 @@ dataset for training of deep neural networks. Then, a deep learning network—PS
 point clouds of several species of plants. The effectiveness of PSegNet originates from three new modules including the
 Double-Neighborhood Feature Extraction Block (DNFEB), the Double-Granularity Feature Fusion Module (DGFFM), and the
 Attention Module (AM).<br>
-***<p align="center">Schematic diagram of the VFPS strategy***<br><br>
+***<p align="center">Schematic diagram of the VFPS downsampling strategy***<br><br>
 <img src="https://github.com/Huang2002200/PlantNet-and-PSegNet/assets/64185853/34fbbb59-7ef1-4af2-90d1-3dc2192e9934" width="50%" height="50%"><br><br>
-***<p align="center">The architecture of PSegNet. DNFEB is feature extraction block to condense the features***<br><br>
+***<p align="center">Architecture of PSegNet***<br><br>
 <img src="https://github.com/Huang2002200/PlantNet-and-PSegNet/assets/64185853/2d87fa66-d8d8-4662-a153-fcf706123de9" width="90%" height="90%"><br><br>
-***<p align="center">Demonstration of DNFEB.In this figure, we only
-display feature dimensions of the 4th DNFEB***<br><br>
+***<p align="center">Demonstration of DNFEB. In this figure, we only
+display how features are processed by the 4th DNFEB in PSegNet***<br><br>
 <img src="https://github.com/Huang2002200/PlantNet-and-PSegNet/assets/64185853/a76d84ac-c00d-4441-abeb-14bc910b2105" width="90%" height="90%"><br><br>
 ## Quick Start<br>
 This project contains four main folders<br>
