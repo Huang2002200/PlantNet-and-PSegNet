@@ -33,7 +33,7 @@ segmentation a feasible and cutting-edge research. However, current plant organ 
 specially designed for only one species or variety, and they rarely perform semantic segmentation (stems and 
 leaves) and instance segmentation (individual leaf) simultaneously. <br>
 <br>
-This study innovates a dual-function deep learning neural network (PlantNet) to realize semantic segmentation and 
+  This study innovates a dual-function deep learning neural network (PlantNet) to realize semantic segmentation and 
 instance segmentation of two dicotyledons and one monocotyledon from point clouds. The innovations of the PlantNet include a 3D EdgePreserving Sampling (3DEPS) strategy for preprocessing input points, a Local Feature Extraction Operation 
 (LFEO) module based on dynamic graph convolutions, and a semantic-instance Feature Fusion Module (FFM).<br>
 ***<p align="center">Pipeline of the PlantNet framework***<br><br>
@@ -46,7 +46,7 @@ instance segmentation of two dicotyledons and one monocotyledon from point cloud
 Phenotyping of plant growth improves the understanding of complex genetic traits and eventually expedites the development of
 modern breeding and intelligent agriculture. In phenotyping, segmentation of 3D point clouds of plant organs such as leaves and
 stems contributes to automatic growth monitoring and reflects the extent of stress received by the plant.<br><br>
-In this work, we first
+  In this work, we first
 proposed the Voxelized Farthest Point Sampling (VFPS), a novel point cloud downsampling strategy, to prepare our plant
 dataset for training of deep neural networks. Then, a deep learning network—PSegNet, was specially designed for segmenting
 point clouds of several species of plants. The effectiveness of PSegNet originates from three new modules including the
@@ -70,9 +70,9 @@ folder [**PSegNet**]  contains the TensorFlow and Pytorch code of PSegNet<br>
 ### Original_Dataset<br>
 The dataset includes 546 single-plant point clouds of three types of crops (tobacco, tomato, and sorghum) under 3 to 5 different growth environments (ambient light, 
 shade, high heat, high light, drought) during a 20-day growth period. In the total dataset, 105 point clouds are for tomato, 312 point clouds are for tobacco, and 129 point clouds are for sorghum.<br>
-The raw point clouds are all represented in "txt" files. Each single txt file is a single 3D plant. Each row of the txt file stands for a point in that point cloud. Each txt file contains 6 columns, in which the first three shows the "xyz" spatial information,
+  The raw point clouds are all represented in "txt" files. Each single txt file is a single 3D plant. Each row of the txt file stands for a point in that point cloud. Each txt file contains 6 columns, in which the first three shows the "xyz" spatial information,
 the fourth column is the instance label, the fifth column is the semantic label, and the sixth column is the object label (nevern used in our project).<br>
-The value of semantic labels starts at "0" and ends at "5". Each semantic label number means a sepecies-relavant crop organ; e.g., "0" means "the stem system of tobacco", and "1" means "the leaf of tobacco". The value of instance label, in most cases, stands for the label of each leaf organ instance; e.g., "1" means the 1st leaf of the current point cloud, and "18" means the 18th leaf of the current point cloud. It should be noted that the instance label is not consecutive, which means "1" is not followed by "2", but may be "5". It should also be noted that the stem system only has one instance--itself, because one cannot divide biologically meaningful stem instances from the total stem system of a crop.
+  The value of semantic labels starts at "0" and ends at "5". Each semantic label number means a sepecies-relavant crop organ; e.g., "0" means "the stem system of tobacco", and "1" means "the leaf of tobacco". The value of instance label, in most cases, stands for the label of each leaf organ instance; e.g., "1" means the 1st leaf of the current point cloud, and "18" means the 18th leaf of the current point cloud. It should be noted that the instance label is not consecutive, which means "1" is not followed by "2", but may be "5". It should also be noted that the stem system only has one instance--itself, because one cannot divide biologically meaningful stem instances from the total stem system of a crop.
 
 ### Data_preprocess<br>
 Raw data needs to be preprocessed before it can be fed into the network for training or testing.<br>
