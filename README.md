@@ -81,12 +81,12 @@ We provide 3 different preprocessing techniques (with different downsampling str
   * file **000split test set and training set.py** is used to randomly divide the point clouds into a training set and a testing set.<br>
   * file **001data augmentation by FPS.py** is used to downsample and augment (default 10x) the testing set and the training set separately using FPS.<br>
   * file **002TXT2H5.py** is used to convert the txt files into h5 format packages. Both versions of PlantNet or PSegNet accept h5 files as input.<br>
-* floder [**3DEPS**] corresponds to use 3DEPS in the preprocessing session.<br>
-  * **000Batch differentiate and save point cloud edge and center points(c++).cpp** is used to separate plant point clouds into edge points and non-edge points (in batches), respectively.<br>
-  * **001Merge edge and core points(4096+4096).py** is used to randomly sample 4096 points at the edge points and 4096 points at the center points,and merge the collected points into one point cloud file.<br>
-  * **002split test set and training set.py** is used to divide the pointclouds into a training set and a test set.<br>
-  * **003Proportionally merge into a new point cloud while expanding by a factor of 10.py** is used to sample 4096*(ratio) points at the edges and 4096*(1-radio) points at the center via vanilla FPS, which are then merged into a single point cloud.When merging, the FPS automatically carries out 10 times data augmentation.<br>
-  * **004TXT2H5.py** is used to add semantic labels to pointclouds as well as convert the files from txt format to h5 format.<br>
+* folder [**3DEPS**] refers to using 3D Edge-Preserving Sampling (3DEPS) in the preprocessing session.<br>
+  * file **000Batch differentiate and save point cloud edge and center points(c++).cpp** is used to separate original point clouds into point clouds containing only edge points and point clouds containing only non-edge points (in batches), respectively.<br>
+  * file **001Merge edge and core points(4096+4096).py** uses FPS to randomly sample 4096 points from the edge part and sample 4096 points from the non-edge part, and combine the two parts into a new point cloud with 4096+4096 points.<br>
+  * file **002split test set and training set.py** is used to divide the new point clouds into a training set and a testing set.<br>
+  * file **003Proportionally merge into a new point cloud while expanding by a factor of 10.py** uses FPS to sample 4096*(ratio) points from the edge part and to sample 4096*(1-radio) points from the non-edge part, then merges the two parts into a new single point cloud with 4096 points. When merging, the FPS is automatically carried out 10 times to do 10x data augmentation. If you want to create more data, please change the factor "10" to a larger number.<br>
+  * file **004TXT2H5.py** is used to convert the files from txt format into h5 format for network input.<br>
 * floder [**VFPS**] corresponds to use VFPS in the preprocessing session.<br>
   * **000Voxel downsampling.py** is used to sample pointclouds via voxel sampling method.<br>
   * **001split test set and training set.py** is used to divide the pointclouds into a training set and a test set.<br>
