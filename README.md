@@ -34,10 +34,10 @@ leaves) and instance segmentation (individual leaf) simultaneously. <br>
 This study innovates a dual-function deep learning neural network (PlantNet) to realize semantic segmentation and 
 instance segmentation of two dicotyledons and one monocotyledon from point clouds. The innovations of the PlantNet include a 3D EdgePreserving Sampling (3DEPS) strategy for preprocessing input points, a Local Feature Extraction Operation 
 (LFEO) module based on dynamic graph convolutions, and a semantic-instance Feature Fusion Module (FFM).<br>
-***<p align="center">Overview of the proposed method***<br><br>
+***<p align="center">Pipeline of the PlantNet framework***<br><br>
 <img src="https://github.com/Huang2002200/PlantNet-and-PSegNet/assets/64185853/9b0c7e00-11c6-4930-9baa-a7395719a955" width="60%" height="60%">
 <br><br>
-***<p align="center">Overview of PlantNet. (a) is the main structure of the network, (b) is a clear demonstration of the Local Feature Extraction Operation (LFEO) used in the encoder***<br><br>
+***<p align="center">Architecture of PlantNet. (a) is the main structure of the network, (b) is a clear demonstration of the Local Feature Extraction Operation (LFEO) used multiple times in the encoder***<br><br>
 <img src="https://github.com/Huang2002200/PlantNet-and-PSegNet/assets/64185853/0be64f82-f628-45fb-a50d-aecf251ca468" width="90%" height="90%"><br><br>
 ### PSegNet<br>
 Phenotyping of plant growth improves the understanding of complex genetic traits and eventually expedites the development of
