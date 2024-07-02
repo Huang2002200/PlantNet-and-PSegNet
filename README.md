@@ -12,6 +12,7 @@ Pubilshed on *ISPRS Journal of Photogrammetry and Remote Sensing* in 2022<br>
 Published on *Plant Phenomics* in 2022<br>
 [[Paper](https://spj.science.org/doi/full/10.34133/2022/9787643?adobe_mc=MCMID%3D14000805405683999525849378418609464876%7CMCORGID%3D242B6472541199F70A4C98A6%2540AdobeOrg%7CTS%3D1700524800)]
 ***
+
 ## Prerequisites<br>
 The code has a tensorflow version and a pytorch version, and their corresponding configurations are as follows:
 * All deep networks run under Ubuntu 20.04
@@ -23,6 +24,7 @@ The code has a tensorflow version and a pytorch version, and their corresponding
   * Python == 3.8.18
   * Pytorch == 2.0.1
   * CUDA == 12.4
+
 ## Introduction<br>
 ### PlantNet<br>
 The accurate plant organ segmentation is crucial and challenging to the quantification of plant architecture and 
@@ -39,6 +41,7 @@ instance segmentation of two dicotyledons and one monocotyledon from point cloud
 <br><br>
 ***<p align="center">Architecture of PlantNet. (a) is the main structure of the network, (b) is a clear demonstration of the Local Feature Extraction Operation (LFEO) used multiple times in the encoder***<br><br>
 <img src="https://github.com/Huang2002200/PlantNet-and-PSegNet/assets/64185853/0be64f82-f628-45fb-a50d-aecf251ca468" width="90%" height="90%"><br><br>
+
 ### PSegNet<br>
 Phenotyping of plant growth improves the understanding of complex genetic traits and eventually expedites the development of
 modern breeding and intelligent agriculture. In phenotyping, segmentation of 3D point clouds of plant organs such as leaves and
@@ -56,17 +59,21 @@ Attention Module (AM).<br>
 ***<p align="center">Demonstration of DNFEB. In this figure, we only
 display how features are processed by the 4th DNFEB in PSegNet***<br><br>
 <img src="https://github.com/Huang2002200/PlantNet-and-PSegNet/assets/64185853/a76d84ac-c00d-4441-abeb-14bc910b2105" width="90%" height="90%"><br><br>
+
 ## Quick Start<br>
 This project contains four main folders<br>
 folder [**Original_Dataset**] contains the raw plant 3D data used in the paper, and the dataset is represented in txt files<br>
 folder [**Data_preprocessing**] contains the code for transfering the raw dataset into the h5 format for network training and testing<br>
 folder [**PlantNet**] contains the TensorFlow and Pytorch code of PlantNet<br>
 folder [**PSegNet**]  contains the TensorFlow and Pytorch code of PSegNet<br>
+
 ### Original_Dataset<br>
-Dataset includes 546 single-plant point clouds of three types of crops (tobacco, tomato, and sorghum) under 3 to 5 different growth environments (ambient light, 
-shade, high heat, high light, drought) during a 20-day growth process.Of these, 105 point clouds for tomato, 312 point clouds for tobacco, and 129 point clouds for sorghum.<br>
-The raw pointclouds are all txt files, each txt file contains 6 columns, the first three columns are xyz location information,
-the fourth column is instance labeling, the fifth column is semantic labeling, and the sixth column is object labeling.<br>
+The dataset includes 546 single-plant point clouds of three types of crops (tobacco, tomato, and sorghum) under 3 to 5 different growth environments (ambient light, 
+shade, high heat, high light, drought) during a 20-day growth period. In the total dataset, 105 point clouds are for tomato, 312 point clouds are for tobacco, and 129 point clouds are for sorghum.<br>
+The raw point clouds are all represented in "txt" files. Each single txt file is a single 3D plant. Each row of the txt file stands for a point in that point cloud. Each txt file contains 6 columns, in which the first three shows the "xyz" spatial information,
+the fourth column is the instance label, the fifth column is the semantic label, and the sixth column is the object label (nevern used in our project).<br>
+The value of semantic labels starts at "0" and ends at "5". Each semantic label number means a sepecies-relavant crop organ; e.g., "0" means "the stem system of tobacco", and "1" means "the leaf of tobacco". The value of instance label, in most cases, stands for the label of each leaf organ instance; e.g., "1" means the 1st leaf of the current point cloud, and "18" means the 18th leaf of the current point cloud. It should be noted that the instance label is not consecutive, which means "1" is not followed by "2", but may be "5". It should also be noted that the stem system only has one instance--itself, because one cannot divide biologically meaningful stem instances from the total stem system of a crop.
+
 ### Data_preprocess<br>
 Raw data needs to be preprocessed before it can be fed into the network for training or testing.<br>
 According to different downsampling strategies (vanilla FPS,3DEPS,VFPS), we provide 3 preprocessing flow folders.
