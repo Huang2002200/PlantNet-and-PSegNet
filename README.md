@@ -63,7 +63,7 @@ display how features are processed by the 4th DNFEB in PSegNet***<br><br>
 ## Quick Start<br>
 This project contains four main folders<br>
 folder [**Original_Dataset**] contains the raw plant 3D data used in the paper, and the dataset is represented in txt files<br>
-folder [**Data_preprocessing**] contains the code for transfering the raw dataset into the h5 format for network training and testing<br>
+folder [**Data_preprocessing**] contains the code for converting the raw dataset into the h5 format for network training and testing<br>
 folder [**PlantNet**] contains the TensorFlow and Pytorch code of PlantNet<br>
 folder [**PSegNet**]  contains the TensorFlow and Pytorch code of PSegNet<br>
 
@@ -72,15 +72,15 @@ The dataset includes 546 single-plant point clouds of three types of crops (toba
 shade, high heat, high light, drought) during a 20-day growth period. In the total dataset, 105 point clouds are for tomato, 312 point clouds are for tobacco, and 129 point clouds are for sorghum.<br><br>
   The raw point clouds are all represented in "txt" files. Each single txt file is a single 3D plant. Each row of the txt file stands for a point in that point cloud. Each txt file contains 6 columns, in which the first three shows the "xyz" spatial information,
 the fourth column is the instance label, the fifth column is the semantic label, and the sixth column is the object label (nevern used in our project).<br><br>
-  The value of semantic labels starts at "0" and ends at "5". Each semantic label number means a sepecies-relavant crop organ; e.g., "0" means "the stem system of tobacco", and "1" means "the leaf of tobacco". The value of instance label, in most cases, stands for the label of each leaf organ instance; e.g., "1" means the 1st leaf of the current point cloud, and "18" means the 18th leaf of the current point cloud. It should be noted that the instance label is not consecutive, which means "1" is not followed by "2", but may be "5". It should also be noted that the stem system only has one instance--itself, because one cannot divide biologically meaningful stem instances from the total stem system of a crop.<br><br>
+  The value of semantic labels starts at "0" and ends at "5". Each semantic label number means a sepecies-relavant crop organ; e.g., "0" means "the stem system of tobacco", and "1" means "the leaf of tobacco". The value of instance label, in most cases, stands for the label of each leaf organ instance; e.g., "1" means the 1st leaf of the current point cloud, and "18" means the 18th leaf of the current point cloud. It should be noted that the instance label is not consecutive, which means "1" is not followed by "2", but may be "5". It should also be noted that the stem system only has one instance--itself, because one cannot divide biologically meaningful stem instances from the total stem system of a crop.<br>
 
-### Data_preprocess<br>
-Raw data needs to be preprocessed before it can be fed into the network for training or testing.<br>
-According to different downsampling strategies (vanilla FPS,3DEPS,VFPS), we provide 3 preprocessing flow folders.
-* floder [**FPS**] corresponds to use vanilla FPS in the preprocessing session.<br>
-  * **000split test set and training set.py** is used to divide the pointclouds into a training set and a test set.<br>
-  * **001data augmentation by FPS.py** is used to augment the test set and training set separately using the FPS approach.<br>
-  * **002TXT2H5.py** is used to add semantic labels to pointclouds as well as convert the files from txt format to h5 format.<br>
+### Data_preprocessing<br>
+Raw data needs to be preprocessed before it can be fed into networks for training or testing.<br>
+We provide 3 different preprocessing techniques (with different downsampling strategies) to prepare the data for networks.<br>
+* folder [**FPS**] refers to using Farthest Point Sampling (FPS) in the preprocessing session.<br>
+  * file **000split test set and training set.py** is used to randomly divide the point clouds into a training set and a testing set.<br>
+  * file **001data augmentation by FPS.py** is used to downsample and augment (default 10x) the testing set and the training set separately using FPS.<br>
+  * file **002TXT2H5.py** is used to convert the txt files into h5 format packages. Both versions of PlantNet or PSegNet accept h5 files as input.<br>
 * floder [**3DEPS**] corresponds to use 3DEPS in the preprocessing session.<br>
   * **000Batch differentiate and save point cloud edge and center points(c++).cpp** is used to separate plant point clouds into edge points and non-edge points (in batches), respectively.<br>
   * **001Merge edge and core points(4096+4096).py** is used to randomly sample 4096 points at the edge points and 4096 points at the center points,and merge the collected points into one point cloud file.<br>
