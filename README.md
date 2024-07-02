@@ -58,11 +58,11 @@ display how features are processed by the 4th DNFEB in PSegNet***<br><br>
 <img src="https://github.com/Huang2002200/PlantNet-and-PSegNet/assets/64185853/a76d84ac-c00d-4441-abeb-14bc910b2105" width="90%" height="90%"><br><br>
 ## Quick Start<br>
 This project contains four main folders<br>
-floder [**dataset**] contains the raw dataset used in the paper as well as the preprocessed training h5 file and test h5 file<br>
-floder [**datapreprocess**] contains the code for processing the raw dataset into the desired h5 format for the network<br>
-floder [**PlantNet**] contains the code corresponding to the PlantNet paper<br>
-floder [**PSegNet**]  contains the code corresponding to the PSegNet paper<br>
-### Dataset<br>
+folder [**Original_Dataset**] contains the raw plant 3D data used in the paper, and the dataset is represented in txt files<br>
+folder [**Data_preprocessing**] contains the code for transfering the raw dataset into the h5 format for network training and testing<br>
+folder [**PlantNet**] contains the TensorFlow and Pytorch code of PlantNet<br>
+folder [**PSegNet**]  contains the TensorFlow and Pytorch code of PSegNet<br>
+### Original_Dataset<br>
 Dataset includes 546 single-plant point clouds of three types of crops (tobacco, tomato, and sorghum) under 3 to 5 different growth environments (ambient light, 
 shade, high heat, high light, drought) during a 20-day growth process.Of these, 105 point clouds for tomato, 312 point clouds for tobacco, and 129 point clouds for sorghum.<br>
 The raw pointclouds are all txt files, each txt file contains 6 columns, the first three columns are xyz location information,
