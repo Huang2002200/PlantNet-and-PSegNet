@@ -102,7 +102,7 @@ Contains all code for training PlantNet networks in both pytorch environment and
   * file **03eval_iou_accuracy.py** is used to compute the quantitative metrics for the organ instance segmentation task as well as the organ semantic segmentation task.<br>
   * file **04changeresulttoins.gt,sem.gt,ins,sem.py** is used to output segmented point clouds based on the predicted labels, which facilitates the visual qualitative comparison with ground truth.<br>
   * file **model.py** contains the full PlantNet model and the loss function.<br>
-  * we also provide a trainned PyTorch PlantNet model at epoch 198; the model parameters were saved into a file "PlantNet/PlantNet_pytorch/models/checkpoints/model_epoch198.pth".<br>
+  * we also provide a trained PyTorch PlantNet model at epoch 198; the model parameters were saved into a file "PlantNet/PlantNet_pytorch/models/checkpoints/model_epoch198.pth".<br>
 ### PSegNet<br>
 Contains all code for training PSegNet networks in both pytorch environment and TensorFlow environment.<br>
 The folder architecture is very similar to the one in the PlantNet folder therefore we omit the instructions.<br><br>
