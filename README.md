@@ -104,7 +104,7 @@ Contains all code for training PlantNet networks in both pytorch environment and
   * file **model.py** contains the full PlantNet model and the loss function.
 ### PSegNet<br>
 Contains all code for training PSegNet networks in both pytorch environment and TensorFlow environment.<br>
-The code architecture is very similar to the one in the PlantNet folderl therefore we omit the instructions.<br><br>
+The folder architecture is very similar to the one in the PlantNet folder therefore we omit the instructions.<br><br>
 ## Citation<br>
 Please consider citing our papers if the project helps your research with the following BibTex:
 ```
