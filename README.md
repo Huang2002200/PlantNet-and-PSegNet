@@ -69,7 +69,7 @@ folder [**PlantNet**] contains the TensorFlow and Pytorch code of PlantNet<br>
 folder [**PSegNet**]  contains the TensorFlow and Pytorch code of PSegNet<br>
 
 ### Original_Dataset<br>
-The dataset (file 546plant_point_xyz_ins_sem_obj.rar) includes 546 single-plant point clouds of three types of crops (tobacco, tomato, and sorghum) under 3 to 5 different growth environments (ambient light, 
+The dataset (file 546plant_point_xyz_ins_sem_obj.rar) includes 546 single-plant colorless point clouds of three types of crops (tobacco, tomato, and sorghum) under 3 to 5 different growth environments (ambient light, 
 shade, high heat, high light, drought) during a 20-day growth period. In the total dataset, 105 point clouds are for tomato, 312 point clouds are for tobacco, and 129 point clouds are for sorghum.<br><br>
   The raw point clouds are all represented in "txt" files. Each single txt file is a single 3D plant. Each row of the txt file stands for a point in that point cloud. Each txt file contains 6 columns, in which the first three shows the "xyz" spatial information,
 the fourth column is the instance label, the fifth column is the semantic label, and the sixth column is the object label (nevern used in our project).<br><br>
