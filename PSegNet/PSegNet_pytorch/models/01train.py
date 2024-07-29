@@ -89,7 +89,7 @@ def main(args):
     '''Add summary writers'''
     train_writer = SummaryWriter(comment='train')
     test_writer = SummaryWriter(comment='test')
-    NUM_CLASSES = 6 # 语义分类标签
+    NUM_CLASSES = 6 # sem classes
     NUM_POINT = args.npoint
     BATCH_SIZE = args.batch_size
 
