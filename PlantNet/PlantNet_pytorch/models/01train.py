@@ -42,8 +42,8 @@ def parse_args():
                         help='Input data list file')
     parser.add_argument('--input_list_test', type=str, default='/data/test_file_list.txt',
                         help='Input data list file')
-    parser.add_argument('--weights_path', type=str, default='',
-                        help='Input data list file')
+    parser.add_argument('--weights_path', type=str, default=None,
+                        help='Input data list file[default:'/weights/path' or None]')
 
     return parser.parse_args()
 
@@ -92,7 +92,7 @@ def main(args):
     '''Add summary writers'''
     train_writer = SummaryWriter(comment='train')
     test_writer = SummaryWriter(comment='test')
-    NUM_CLASSES = 8 # 语义分类标签
+    NUM_CLASSES = 6 # sem classes
     NUM_POINT = args.npoint
     BATCH_SIZE = args.batch_size
 
