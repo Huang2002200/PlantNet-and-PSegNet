@@ -6,7 +6,7 @@ NUM_CLASSES = 6
 MAX_POINTS = 4096
 
 pred_data_label_filenames = []
-file_name = '/out/output_filelist4_15.txt'
+file_name = '/out/output_filelist1.txt'
 pred_data_label_filenames += [line.rstrip() for line in open(file_name)]
 
 gt_label_filenames = [f.rstrip('pred.txt') + 'gt.txt' for f in pred_data_label_filenames]
