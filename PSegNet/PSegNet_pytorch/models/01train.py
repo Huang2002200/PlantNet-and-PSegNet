@@ -42,7 +42,8 @@ def parse_args():
                         help='Input data list file')
     parser.add_argument('--input_list_test', type=str, default='/data/test_file_list.txt',
                         help='Input data list file')
-
+    parser.add_argument('--weights_path', type=str, default=None,
+                        help='Input data list file[default:'/weights/path' or None]')
     return parser.parse_args()
 
 def inplace_relu(m):
@@ -131,13 +132,12 @@ def main(args):
             torch.nn.init.xavier_normal_(m.weight.data)
             torch.nn.init.constant_(m.bias.data, 0.0)
 
-    try:
-        # checkpoint = torch.load(str(experiment_dir) + '/checkpoints/best_model.pth')
-        checkpoint = torch.load(r'')
+    if args.weights_path is not None:
+       checkpoint = torch.load(args.weights_path)
         start_epoch = checkpoint['epoch']
         classifier.load_state_dict(checkpoint['model_state_dict'])
         log_string('Use pretrain model')
-    except:
+    else:
         log_string('No existing model, starting training from scratch...')
         start_epoch = 0
         classifier = classifier.apply(weights_init)
