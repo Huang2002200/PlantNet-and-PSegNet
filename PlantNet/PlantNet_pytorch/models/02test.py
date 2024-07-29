@@ -48,7 +48,7 @@ output_verbose = args.verbose  # If true, output all color-coded segmentation ob
 LOG_DIR = args.log_dir
 if not os.path.exists(LOG_DIR): os.mkdir(LOG_DIR)
 
-OUTPUT_DIR = os.path.join(LOG_DIR, 'log_4_15')
+OUTPUT_DIR = os.path.join(LOG_DIR, 'log_1')
 if not os.path.exists(OUTPUT_DIR):
     os.mkdir(OUTPUT_DIR)
 
@@ -77,7 +77,7 @@ def test():
         log_string("Model restored.")
         classifier = classifier.eval()
 
-        output_filelist_f = os.path.join(LOG_DIR, 'output_filelist4_15.txt')
+        output_filelist_f = os.path.join(LOG_DIR, 'output_filelist1.txt')
         fout_out_filelist = open(output_filelist_f, 'w')
         for shape_idx in range(len_pts_files):
             room_path = ROOM_PATH_LIST[shape_idx]
