@@ -178,10 +178,10 @@ class get_loss(nn.Module):
         alpha = 10.
         C_same = 10.
         C_diff = 80.
-        pos = torch.mul(samegroup_mat_label, pred_simmat)
+        neg_diffsem = torch.mul(diffgroup_diffsem_mat_label, pred_simmat)
         zero_tensor = torch.tensor(0)
         neg_samesem = alpha * torch.mul(diffgroup_samesem_mat_label, torch.maximum(torch.sub(C_same, pred_simmat),  zero_tensor))
-        neg_diffsem = torch.mul(diffgroup_diffsem_mat_label, torch.maximum(torch.sub(C_diff, pred_simmat),  zero_tensor))
+        pos = torch.mul(samegroup_mat_label, torch.maximum(torch.sub(C_diff, pred_simmat),  zero_tensor))
 
         simmat_loss = neg_samesem + neg_diffsem + pos
 
