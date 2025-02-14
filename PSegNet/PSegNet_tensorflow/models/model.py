@@ -251,9 +251,9 @@ def get_loss(pred, ins_label, pred_sem, sem_label, sem_ins_fuse, pts_semseg_labe
     C_same = 10.
     C_diff = 80.
 
-    pos =  tf.multiply(samegroup_mat_label, pred_simmat) # minimize distances if in the same group
+    neg_diffsem =  tf.multiply(diffgroup_diffsem_mat_label, pred_simmat) # minimize distances if in the same group
     neg_samesem = alpha * tf.multiply(diffgroup_samesem_mat_label, tf.maximum(tf.subtract(C_same, pred_simmat), 0))
-    neg_diffsem = tf.multiply(diffgroup_diffsem_mat_label, tf.maximum(tf.subtract(C_diff, pred_simmat), 0))
+    pos = tf.multiply(samegroup_mat_label, tf.maximum(tf.subtract(C_diff, pred_simmat), 0))
 
 
     simmat_loss = neg_samesem + neg_diffsem + pos
